@@ -12,6 +12,7 @@
 | `pnpm test:browser` | 2 сценария: реальный HTTP flow админка → регистрация → поиск → PDF → выход; панель мониторинга с явными offline/unknown состояниями |
 | `cargo test --locked --manifest-path apps/terminal/src-tauri/Cargo.toml --lib` | 2 теста ограничения native IPC и TLS-настроек |
 | Отдельный `oms_parser` | 13 тестов |
+| Linux DEB (Debian 12) | Успешная сборка в GitHub Actions на commit 502c18f; runtime на Ubuntu/Astra отдельно не подтверждён |
 | Windows NSIS | Локально собран `ResultsTerminal_0.1.0_x64-setup.exe`; без цифровой подписи |
 | Production dependency audit | 0 известных уязвимостей после обновления PDF.js до 6.2.108+ и @fastify/static до 10.1.2+ |
 | Gateway package | Создан tar.gz со службой, кодом шлюза, собранной панелью, контрактами и документацией; зависимости устанавливаются по lockfile |
@@ -21,8 +22,8 @@ Browser-проверки запускались в Edge. Просмотрены 
 ## Не выполнено на этом стенде
 
 - Установка и аппаратная приёмка на Windows 10/11: реальный принтер, очередь, бумага, COM/HID-сканеры и отключение оборудования.
-- Linux DEB: сборка предусмотрена workflow Debian 12; локально Docker Linux daemon недоступен. Наличие workflow не означает успешную сборку.
-- Ubuntu 24.04 и Astra SE 1.8: установка, запуск WebView, сканер и CUPS на реальных целевых ОС. Для Astra добавлен отдельный self-hosted workflow, требующий стенда.
+- Linux DEB: сборка на GitHub в Debian 12 прошла успешно в запуске https://github.com/FreejackRus/ResultsTerminal/actions/runs/40179011147 (commit 502c18f). Локально Docker Linux daemon недоступен. Установка на целевых Ubuntu/Astra пока не проверена.
+- Ubuntu 24.04 и Astra SE 1.8: установка, запуск WebView, сканер и CUPS на реальных целевых ОС. Для Astra добавлены GitHub-hosted UBI-сборка и отдельный self-hosted workflow. UBI-сборка запущена; её результат необходимо проверять по статусу Actions, а не наличию файла workflow.
 - Конкретная внешняя МИС, учрежденческие сертификаты, реальные сетевые отказы, нагрузочное испытание и восстановление резервной копии на эксплуатационном сервере.
 - Подписание установщика сертификатом владельца.
 
