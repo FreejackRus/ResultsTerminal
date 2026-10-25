@@ -1,0 +1,50 @@
+name: Astra 1.8 package on GitHub
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astra-build.yml'
+      - 'deploy/build-astra.sh'
+permissions:
+  contents: read
+jobs:
+  astra:
+    name: Astra 1.8 x64 (official UBI container)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      ASTRA_IMAGE: registry.astralinux.ru/library/astra/ubi18:1.8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        id: node
+        with:
+          node-version: 24
+      - name: Optional official registry login
+        env:
+          REGISTRY_USER: ${{ secrets.ASTRA_REGISTRY_USERNAME }}
+          REGISTRY_PASSWORD: ${{ secrets.ASTRA_REGISTRY_PASSWORD }}
+        run: |
+          if [ -n "$REGISTRY_USER" ] && [ -n "$REGISTRY_PASSWORD" ]; then
+            printf '%s' "$REGISTRY_PASSWORD" | docker login registry.astralinux.ru --username "$REGISTRY_USER" --password-stdin
+          fi
+      - name: Fetch official Astra 1.8 build environment
+        timeout-minutes: 5
+        run: |
+          docker pull "$ASTRA_IMAGE"
+          docker image inspect "$ASTRA_IMAGE" --format '{{index .RepoDigests 0}}' >> "$GITHUB_STEP_SUMMARY"
+      - name: Build and check DEB inside Astra
+        run: |
+          NODE_HOME="$(dirname "$(dirname "$(command -v node)")")"
+          docker run --rm --entrypoint /bin/bash \
+            --mount "type=bind,source=$GITHUB_WORKSPACE,target=/work" \
+            --mount "type=bind,source=$NODE_HOME,target=/opt/node,readonly" \
+            -e CI=true -w /work "$ASTRA_IMAGE" deploy/build-astra.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: terminal-astra-1.8-x64
+          if-no-files-found: error
+          path: apps/terminal/src-tauri/target/release/bundle/deb/*.deb

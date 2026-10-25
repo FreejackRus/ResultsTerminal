@@ -16,7 +16,7 @@ const result = spawnSync(
     'apps/gateway',
     'apps/admin/dist',
     'apps/admin/package.json',
-    'apps/demo-mis/package.json',
+    'apps/demo-mis',
     'packages/contracts',
     'scripts',
     'deploy',
