@@ -1,0 +1,34 @@
+{
+  "name": "results-terminal",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.25.0",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "dev": "tsx scripts/dev.ts",
+    "build": "pnpm -r build",
+    "typecheck": "tsc --noEmit && pnpm -r typecheck",
+    "test": "tsx --test tests/*.test.ts",
+    "contract:check": "tsx scripts/contract-check.ts",
+    "openapi": "tsx scripts/openapi.ts",
+    "tauri": "pnpm --filter @rt/terminal tauri",
+    "start:gateway": "tsx scripts/gateway.ts",
+    "start:demo": "tsx scripts/demo.ts",
+    "test:browser": "playwright test",
+    "format": "prettier --write \"apps/*/src/**/*.{ts,tsx,css}\" \"packages/*/src/**/*.ts\" scripts tests",
+    "format:check": "prettier --check \"apps/*/src/**/*.{ts,tsx,css}\" \"packages/*/src/**/*.ts\" scripts tests",
+    "package:gateway": "tsx scripts/package-gateway.ts"
+  },
+  "devDependencies": {
+    "typescript": "~5.8.3",
+    "@types/node": "^24.0.0",
+    "@playwright/test": "^1.56.0",
+    "vite": "^7.0.4",
+    "prettier": "^3.8.1"
+  },
+  "dependencies": {
+    "tsx": "^4.20.0"
+  }
+}

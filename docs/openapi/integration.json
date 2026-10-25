@@ -1,0 +1,2463 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ResultsTerminal integration API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://gateway.example.invalid"
+    }
+  ],
+  "paths": {
+    "/integration/v1/capabilities": {
+      "get": {
+        "summary": "Declared identification methods",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Capabilities"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/integration/v1/identifications": {
+      "post": {
+        "summary": "Identify a patient or start an OTP challenge",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Identification"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/Session"
+                    },
+                    {
+                      "$ref": "#/components/schemas/Challenge"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/integration/v1/identifications/confirm": {
+      "post": {
+        "summary": "Confirm the OTP challenge",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Confirmation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Session"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/integration/v1/sessions/{sessionId}": {
+      "parameters": [
+        {
+          "name": "sessionId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "delete": {
+        "summary": "End session",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Ended"
+          },
+          "401": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/integration/v1/sessions/{sessionId}/results": {
+      "parameters": [
+        {
+          "name": "sessionId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "summary": "List results",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Results"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ]
+      }
+    },
+    "/integration/v1/sessions/{sessionId}/results/{resultId}/pdf": {
+      "parameters": [
+        {
+          "name": "sessionId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "resultId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "summary": "PDF bytes, maximum 25 MiB",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "PDF, never a filesystem path or redirect",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Structured error; code and correlationId, no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "correlationId"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "correlationId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "schemas": {
+      "Identification": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "method",
+              "identifier",
+              "proof"
+            ],
+            "properties": {
+              "method": {
+                "const": "oms-birth",
+                "type": "string"
+              },
+              "identifier": {
+                "minLength": 1,
+                "maxLength": 256,
+                "type": "string"
+              },
+              "proof": {
+                "format": "date",
+                "type": "string"
+              }
+            }
+          },
+          {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "method",
+              "identifier",
+              "proof"
+            ],
+            "properties": {
+              "method": {
+                "const": "oms-name",
+                "type": "string"
+              },
+              "identifier": {
+                "minLength": 1,
+                "maxLength": 256,
+                "type": "string"
+              },
+              "proof": {
+                "minLength": 1,
+                "maxLength": 200,
+                "type": "string"
+              }
+            }
+          },
+          {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "method",
+              "identifier"
+            ],
+            "properties": {
+              "method": {
+                "const": "barcode",
+                "type": "string"
+              },
+              "identifier": {
+                "minLength": 1,
+                "maxLength": 256,
+                "type": "string"
+              }
+            }
+          },
+          {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "method",
+              "identifier"
+            ],
+            "properties": {
+              "method": {
+                "const": "qr",
+                "type": "string"
+              },
+              "identifier": {
+                "minLength": 1,
+                "maxLength": 256,
+                "type": "string"
+              }
+            }
+          },
+          {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "method",
+              "identifier",
+              "proof"
+            ],
+            "properties": {
+              "method": {
+                "const": "order-code",
+                "type": "string"
+              },
+              "identifier": {
+                "minLength": 1,
+                "maxLength": 256,
+                "type": "string"
+              },
+              "proof": {
+                "minLength": 1,
+                "maxLength": 200,
+                "type": "string"
+              }
+            }
+          },
+          {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "method",
+              "identifier",
+              "proof"
+            ],
+            "properties": {
+              "method": {
+                "const": "contract-code",
+                "type": "string"
+              },
+              "identifier": {
+                "minLength": 1,
+                "maxLength": 256,
+                "type": "string"
+              },
+              "proof": {
+                "minLength": 1,
+                "maxLength": 200,
+                "type": "string"
+              }
+            }
+          },
+          {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "method",
+              "identifier",
+              "proof"
+            ],
+            "properties": {
+              "method": {
+                "const": "patient-code",
+                "type": "string"
+              },
+              "identifier": {
+                "minLength": 1,
+                "maxLength": 256,
+                "type": "string"
+              },
+              "proof": {
+                "minLength": 1,
+                "maxLength": 200,
+                "type": "string"
+              }
+            }
+          },
+          {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "method",
+              "identifier"
+            ],
+            "properties": {
+              "method": {
+                "const": "phone-otp",
+                "type": "string"
+              },
+              "identifier": {
+                "minLength": 1,
+                "maxLength": 256,
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "Confirmation": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "challengeId",
+          "code"
+        ],
+        "properties": {
+          "challengeId": {
+            "minLength": 1,
+            "maxLength": 256,
+            "type": "string"
+          },
+          "code": {
+            "pattern": "^[0-9]{4,8}$",
+            "type": "string"
+          }
+        }
+      },
+      "Session": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "sessionId",
+          "expiresAt",
+          "patient"
+        ],
+        "properties": {
+          "sessionId": {
+            "minLength": 1,
+            "maxLength": 256,
+            "type": "string"
+          },
+          "expiresAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "patient": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "displayName"
+            ],
+            "properties": {
+              "displayName": {
+                "minLength": 1,
+                "maxLength": 120,
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "Challenge": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "challengeId",
+          "expiresAt"
+        ],
+        "properties": {
+          "challengeId": {
+            "minLength": 1,
+            "maxLength": 256,
+            "type": "string"
+          },
+          "expiresAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        }
+      },
+      "Results": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items",
+          "nextCursor"
+        ],
+        "properties": {
+          "items": {
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "additionalProperties": false,
+              "type": "object",
+              "required": [
+                "id",
+                "title",
+                "date",
+                "category",
+                "status",
+                "pdfAvailable"
+              ],
+              "properties": {
+                "id": {
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "type": "string"
+                },
+                "title": {
+                  "minLength": 1,
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                "date": {
+                  "format": "date",
+                  "type": "string"
+                },
+                "category": {
+                  "minLength": 1,
+                  "maxLength": 100,
+                  "type": "string"
+                },
+                "status": {
+                  "anyOf": [
+                    {
+                      "const": "ready",
+                      "type": "string"
+                    },
+                    {
+                      "const": "pending",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "pdfAvailable": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "nextCursor": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      },
+      "Capabilities": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "apiVersion",
+          "methods"
+        ],
+        "properties": {
+          "apiVersion": {
+            "const": "1",
+            "type": "string"
+          },
+          "methods": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "const": "oms-birth",
+                  "type": "string"
+                },
+                {
+                  "const": "oms-name",
+                  "type": "string"
+                },
+                {
+                  "const": "barcode",
+                  "type": "string"
+                },
+                {
+                  "const": "qr",
+                  "type": "string"
+                },
+                {
+                  "const": "order-code",
+                  "type": "string"
+                },
+                {
+                  "const": "contract-code",
+                  "type": "string"
+                },
+                {
+                  "const": "patient-code",
+                  "type": "string"
+                },
+                {
+                  "const": "phone-otp",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Configuration": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "version",
+          "brand",
+          "languages",
+          "defaultLanguage",
+          "highContrast",
+          "preview",
+          "printing",
+          "methods",
+          "timers",
+          "hardware"
+        ],
+        "properties": {
+          "version": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "brand": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "name",
+              "primary",
+              "background",
+              "logo",
+              "contacts",
+              "help"
+            ],
+            "properties": {
+              "name": {
+                "minLength": 1,
+                "maxLength": 120,
+                "type": "string"
+              },
+              "primary": {
+                "pattern": "^#[0-9a-fA-F]{6}$",
+                "type": "string"
+              },
+              "background": {
+                "pattern": "^#[0-9a-fA-F]{6}$",
+                "type": "string"
+              },
+              "logo": {
+                "maxLength": 500000,
+                "pattern": "^(|data:image/(png|webp);base64,[A-Za-z0-9+/=]+)$",
+                "type": "string"
+              },
+              "contacts": {
+                "maxLength": 300,
+                "type": "string"
+              },
+              "help": {
+                "maxLength": 500,
+                "type": "string"
+              }
+            }
+          },
+          "languages": {
+            "minItems": 1,
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "const": "ru",
+                  "type": "string"
+                },
+                {
+                  "const": "en",
+                  "type": "string"
+                },
+                {
+                  "const": "zh",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "defaultLanguage": {
+            "anyOf": [
+              {
+                "const": "ru",
+                "type": "string"
+              },
+              {
+                "const": "en",
+                "type": "string"
+              },
+              {
+                "const": "zh",
+                "type": "string"
+              }
+            ]
+          },
+          "highContrast": {
+            "type": "boolean"
+          },
+          "preview": {
+            "type": "boolean"
+          },
+          "printing": {
+            "type": "boolean"
+          },
+          "methods": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "const": "oms-birth",
+                  "type": "string"
+                },
+                {
+                  "const": "oms-name",
+                  "type": "string"
+                },
+                {
+                  "const": "barcode",
+                  "type": "string"
+                },
+                {
+                  "const": "qr",
+                  "type": "string"
+                },
+                {
+                  "const": "order-code",
+                  "type": "string"
+                },
+                {
+                  "const": "contract-code",
+                  "type": "string"
+                },
+                {
+                  "const": "patient-code",
+                  "type": "string"
+                },
+                {
+                  "const": "phone-otp",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "timers": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "idleSeconds",
+              "warningSeconds",
+              "successSeconds"
+            ],
+            "properties": {
+              "idleSeconds": {
+                "minimum": 15,
+                "maximum": 600,
+                "type": "integer"
+              },
+              "warningSeconds": {
+                "minimum": 15,
+                "maximum": 300,
+                "type": "integer"
+              },
+              "successSeconds": {
+                "minimum": 5,
+                "maximum": 120,
+                "type": "integer"
+              }
+            }
+          },
+          "hardware": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "printer",
+              "scannerMode",
+              "serialPort",
+              "baudRate",
+              "scanPattern"
+            ],
+            "properties": {
+              "printer": {
+                "maxLength": 200,
+                "type": "string"
+              },
+              "hidDeviceId": {
+                "maxLength": 300,
+                "type": "string"
+              },
+              "pdfHelper": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "scannerMode": {
+                "anyOf": [
+                  {
+                    "const": "hid",
+                    "type": "string"
+                  },
+                  {
+                    "const": "serial",
+                    "type": "string"
+                  }
+                ]
+              },
+              "serialPort": {
+                "maxLength": 200,
+                "type": "string"
+              },
+              "baudRate": {
+                "minimum": 1200,
+                "maximum": 115200,
+                "type": "integer"
+              },
+              "scanPattern": {
+                "maxLength": 120,
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "Health": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "checkedAt",
+          "os",
+          "uptimeSeconds",
+          "cpuPercent",
+          "memoryTotalMb",
+          "memoryUsedMb",
+          "diskFreeGb",
+          "scanner",
+          "printer"
+        ],
+        "properties": {
+          "checkedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "os": {
+            "maxLength": 60,
+            "type": "string"
+          },
+          "uptimeSeconds": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "cpuPercent": {
+            "minimum": 0,
+            "maximum": 100,
+            "type": "number"
+          },
+          "memoryTotalMb": {
+            "minimum": 0,
+            "type": "number"
+          },
+          "memoryUsedMb": {
+            "minimum": 0,
+            "type": "number"
+          },
+          "diskFreeGb": {
+            "minimum": 0,
+            "type": "number"
+          },
+          "scanner": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "state",
+              "code"
+            ],
+            "properties": {
+              "state": {
+                "anyOf": [
+                  {
+                    "const": "ready",
+                    "type": "string"
+                  },
+                  {
+                    "const": "busy",
+                    "type": "string"
+                  },
+                  {
+                    "const": "error",
+                    "type": "string"
+                  },
+                  {
+                    "const": "disconnected",
+                    "type": "string"
+                  },
+                  {
+                    "const": "unknown",
+                    "type": "string"
+                  }
+                ]
+              },
+              "code": {
+                "anyOf": [
+                  {
+                    "const": "OK",
+                    "type": "string"
+                  },
+                  {
+                    "const": "PORT_UNAVAILABLE",
+                    "type": "string"
+                  },
+                  {
+                    "const": "NOT_CONFIGURED",
+                    "type": "string"
+                  },
+                  {
+                    "const": "HID_UNVERIFIED",
+                    "type": "string"
+                  },
+                  {
+                    "const": "HID_NOT_FOUND",
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          },
+          "printer": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "state",
+              "code"
+            ],
+            "properties": {
+              "state": {
+                "anyOf": [
+                  {
+                    "const": "ready",
+                    "type": "string"
+                  },
+                  {
+                    "const": "busy",
+                    "type": "string"
+                  },
+                  {
+                    "const": "error",
+                    "type": "string"
+                  },
+                  {
+                    "const": "disconnected",
+                    "type": "string"
+                  },
+                  {
+                    "const": "unknown",
+                    "type": "string"
+                  }
+                ]
+              },
+              "code": {
+                "anyOf": [
+                  {
+                    "const": "OK",
+                    "type": "string"
+                  },
+                  {
+                    "const": "NOT_CONFIGURED",
+                    "type": "string"
+                  },
+                  {
+                    "const": "OFFLINE",
+                    "type": "string"
+                  },
+                  {
+                    "const": "PAPER_OR_TONER",
+                    "type": "string"
+                  },
+                  {
+                    "const": "QUEUE_ERROR",
+                    "type": "string"
+                  },
+                  {
+                    "const": "DRIVER_UNAVAILABLE",
+                    "type": "string"
+                  },
+                  {
+                    "const": "CHECK_FAILED",
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "Hardware": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "printer",
+          "scannerMode",
+          "serialPort",
+          "baudRate",
+          "scanPattern"
+        ],
+        "properties": {
+          "printer": {
+            "maxLength": 200,
+            "type": "string"
+          },
+          "hidDeviceId": {
+            "maxLength": 300,
+            "type": "string"
+          },
+          "pdfHelper": {
+            "maxLength": 500,
+            "type": "string"
+          },
+          "scannerMode": {
+            "anyOf": [
+              {
+                "const": "hid",
+                "type": "string"
+              },
+              {
+                "const": "serial",
+                "type": "string"
+              }
+            ]
+          },
+          "serialPort": {
+            "maxLength": 200,
+            "type": "string"
+          },
+          "baudRate": {
+            "minimum": 1200,
+            "maximum": 115200,
+            "type": "integer"
+          },
+          "scanPattern": {
+            "maxLength": 120,
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

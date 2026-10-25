@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "brand": {
+    "name": "Клиника «Север»",
+    "primary": "#245B94",
+    "background": "#F1F5FA",
+    "logo": "",
+    "contacts": "+7 (000) 000-00-01",
+    "help": "Помощь с получением результатов — на стойке администратора."
+  },
+  "languages": [
+    "ru",
+    "en",
+    "zh"
+  ],
+  "defaultLanguage": "ru",
+  "highContrast": false,
+  "preview": true,
+  "printing": true,
+  "methods": [
+    "oms-birth",
+    "barcode",
+    "qr",
+    "order-code"
+  ],
+  "timers": {
+    "idleSeconds": 45,
+    "warningSeconds": 45,
+    "successSeconds": 15
+  },
+  "hardware": {
+    "printer": "",
+    "scannerMode": "hid",
+    "serialPort": "",
+    "baudRate": 9600,
+    "scanPattern": "^[A-Za-z0-9_-]{4,128}$"
+  }
+}

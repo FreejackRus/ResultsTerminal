@@ -1,0 +1,40 @@
+{
+  "oms-birth": {
+    "method": "oms-birth",
+    "identifier": "0000000000000001",
+    "proof": "2000-01-01"
+  },
+  "oms-name": {
+    "method": "oms-name",
+    "identifier": "0000000000000001",
+    "proof": "Тестовый Пациент"
+  },
+  "barcode": {
+    "method": "barcode",
+    "identifier": "DEMO-ACCESS-0001"
+  },
+  "qr": {
+    "method": "qr",
+    "identifier": "DEMO-ACCESS-0001"
+  },
+  "order-code": {
+    "method": "order-code",
+    "identifier": "000001",
+    "proof": "246810"
+  },
+  "contract-code": {
+    "method": "contract-code",
+    "identifier": "000001",
+    "proof": "246810"
+  },
+  "patient-code": {
+    "method": "patient-code",
+    "identifier": "000001",
+    "proof": "246810"
+  },
+  "phone-otp": {
+    "method": "phone-otp",
+    "identifier": "+79990000000",
+    "otp": "123456"
+  }
+}

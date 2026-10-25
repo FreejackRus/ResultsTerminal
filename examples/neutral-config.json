@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "brand": {
+    "name": "ResultsTerminal",
+    "primary": "#176B68",
+    "background": "#F2F6F5",
+    "logo": "",
+    "contacts": "",
+    "help": "Обратитесь к сотруднику учреждения, если вам нужна помощь."
+  },
+  "languages": [
+    "ru",
+    "en",
+    "zh"
+  ],
+  "defaultLanguage": "ru",
+  "highContrast": false,
+  "preview": true,
+  "printing": true,
+  "methods": [
+    "oms-birth",
+    "barcode",
+    "qr",
+    "order-code"
+  ],
+  "timers": {
+    "idleSeconds": 45,
+    "warningSeconds": 45,
+    "successSeconds": 15
+  },
+  "hardware": {
+    "printer": "",
+    "scannerMode": "hid",
+    "serialPort": "",
+    "baudRate": 9600,
+    "scanPattern": "^[A-Za-z0-9_-]{4,128}$"
+  }
+}

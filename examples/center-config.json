@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "brand": {
+    "name": "Медицинский центр «Линия»",
+    "primary": "#6B5733",
+    "background": "#F8F5EE",
+    "logo": "",
+    "contacts": "+7 (000) 000-00-02",
+    "help": "Нужна помощь? Обратитесь в регистратуру."
+  },
+  "languages": [
+    "ru",
+    "en",
+    "zh"
+  ],
+  "defaultLanguage": "ru",
+  "highContrast": false,
+  "preview": true,
+  "printing": true,
+  "methods": [
+    "oms-birth",
+    "barcode",
+    "qr",
+    "order-code"
+  ],
+  "timers": {
+    "idleSeconds": 45,
+    "warningSeconds": 45,
+    "successSeconds": 15
+  },
+  "hardware": {
+    "printer": "",
+    "scannerMode": "hid",
+    "serialPort": "",
+    "baudRate": 9600,
+    "scanPattern": "^[A-Za-z0-9_-]{4,128}$"
+  }
+}

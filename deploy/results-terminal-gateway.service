@@ -1,0 +1,26 @@
+[Unit]
+Description=ResultsTerminal institution gateway
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=results-terminal
+Group=results-terminal
+WorkingDirectory=/opt/results-terminal
+Environment=NODE_ENV=production
+Environment=RT_DATABASE=/var/lib/results-terminal/gateway.sqlite
+EnvironmentFile=/etc/results-terminal/gateway.env
+ExecStart=/usr/bin/node /opt/results-terminal/node_modules/tsx/dist/cli.mjs /opt/results-terminal/scripts/gateway.ts
+Restart=on-failure
+RestartSec=5
+UMask=0077
+StateDirectory=results-terminal
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/results-terminal
+
+[Install]
+WantedBy=multi-user.target

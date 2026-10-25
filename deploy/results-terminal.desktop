@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=ResultsTerminal
+Exec=/usr/bin/results-terminal
+Terminal=false
+X-GNOME-Autostart-enabled=true

@@ -1,0 +1,20 @@
+name: Astra 1.8 acceptance build
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  astra:
+    runs-on: [self-hosted, linux, x64, astra-1.8]
+    steps:
+      - uses: actions/checkout@v4
+      - run: cat /etc/os-release
+      - run: node --version && pnpm --version && rustc --version
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test && pnpm typecheck && pnpm build
+      - run: cargo test --locked --manifest-path apps/terminal/src-tauri/Cargo.toml --lib
+      - run: pnpm --filter @rt/terminal tauri build --bundles deb --ci
+      - uses: actions/upload-artifact@v4
+        with:
+          name: astra-1.8-build-not-hardware-acceptance
+          path: apps/terminal/src-tauri/target/release/bundle/deb/*.deb
